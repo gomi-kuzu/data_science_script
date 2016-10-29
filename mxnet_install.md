@@ -3,8 +3,8 @@
 ### Linuxの場合R版MXnetライブラリをインストールするのに少し手間がかかるので書いておく
 ※ちなみに、Windows or Mac なら以下のようにすれば入るらしい
 　Rのコンソールで
-> install.packages("drat", repos="https://cran.rstudio.com")
-> drat:::addRepo("dmlc")
+> install.packages("drat", repos="https://cran.rstudio.com")  
+> drat:::addRepo("dmlc")  
 > install.packages("mxnet")
 
 簡単…
@@ -13,23 +13,23 @@ ubuntu 14.04
 R 3.3.1 
 #### STATE
 1. ターミナル上でgithubから引っぱってきてmake
-`sudo apt-get install build-essential libatlas-base-dev libopencv-dev`
-`git clone --recursive https://github.com/dmlc/mxnet`
-`cd mxnet`
+`sudo apt-get install build-essential libatlas-base-dev libopencv-dev`  
+`git clone --recursive https://github.com/dmlc/mxnet`  
+`cd mxnet`  
 `make`
 
 2. Rコンソールでpakインスコとかよくわからん操作
 
  入ってないなら下のパッケージ入れる
-> install.packages("devtools")
-> install.packages("methods")
+> install.packages("devtools")  
+> install.packages("methods")  
 > install.packages("httr")
 
 ###※ここでなんかよくわからんエラー発生
 `ERROR: configuration failed for package ‘curl’`〜〜（省略）
 
 ネットで調べてターミナルから
-`sudo apt-get install curl`
+`sudo apt-get install curl`  
 `sudo apt-get install libcurl4-gnutls-dev`
 とやったらなおった（下だけでよかった可能性アリ）
 
