@@ -9,7 +9,7 @@
 
 簡単…
 ##### My環境
-ubuntu 14.04
+ubuntu 14.04LTS  
 R 3.3.1 
 #### STATE
 1. ターミナル上でgithubから引っぱってきてmake  
@@ -51,14 +51,14 @@ R 3.3.1
 　がいるらしい（やってない）
 
 3.　しあげ  
-ここまで終わったらターミナルで
+ここまで終わったらターミナルで  
 `cd mxnet`  
 `make rpkg`  
 `R CMD INSTALL mxnet_0.7.tar.gz`
 
 作業終了
 
-4.　確認
+4.　確認  
 Rコンソールで
 >require(mxnet)
 
