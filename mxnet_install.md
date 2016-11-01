@@ -33,7 +33,7 @@ R 3.3.1
 `sudo apt-get install libcurl4-gnutls-dev`  
 とやったらなおった（下だけでよかった可能性アリ）
 
-　で読み込み
+　で読み込み (library()ではなくrequire()を使う)
 >require(devtools)  
 >require(methods)  
 >require(httr)

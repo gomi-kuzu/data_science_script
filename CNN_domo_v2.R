@@ -51,12 +51,12 @@ dim(test.array) <- c(28, 28, 1, ncol(test))
 #学習
 mx.set.seed(0)  #初期重み固定？
 tic <- proc.time()  #計算時間測る用
-model <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y, ctx=mx.cpu(), num.round=30, optimizer = "sgd", learning.rate=0.05, momentum=0.9, wd=0.00001, eval.metric=mx.metric.accuracy, epoch.end.callback=mx.callback.log.train.metric(100), array.batch.size=100)
-#入力から出力までをつないだネットワークをセット, 訓練入力データ, 訓練教師データ ,デバイス(CPUorGPU), エポック数, 最適化手法, 初期学習率 , モーメンタム , 重み減衰係数 , 正解率を計算するかどうか? , 各エポックが終了した時にログをとるようにしてる? , ミニバッチサイズ
+model <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y, ctx=mx.cpu(), num.round=30, optimizer = "adam", learning.rate=0.001, wd=0.00001, eval.metric=mx.metric.accuracy, epoch.end.callback=mx.callback.log.train.metric(100), array.batch.size=100)
+#入力から出力までをつないだネットワークをセット, 訓練入力データ, 訓練教師データ ,プロセッサ(CPU or GPU), エポック数, 最適化手法, 最適化のパラメータ, 重み減衰係数 , 正解率を計算するかどうか? , 各エポックが終了した時にログをとるようにしてる? , ミニバッチサイズ
 
 #評価
 print(proc.time() - tic)  #学習時間
-preds <- predict(model, test.array, ctx=mx.cpu())  #(テストデータ推定)　さっき学習させたモデルをセット,テストデータを入力,デバイスはCPU　（結果は確率で得られる）
+preds <- predict(model, test.array, ctx=mx.cpu())  #(テストデータ推定)　さっき学習させたモデルをセット,テストデータを入力,CPUで計算　（結果は確率で得られる）
 pred.label <- max.col(t(preds)) - 1　#確率が一番高いラベルを取り出す
 table(test_org,pred.label)　#推定結果表示
 sum(diag(table(test_org,pred.label)))/1000　#全体正解率
