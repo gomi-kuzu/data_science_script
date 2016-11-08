@@ -11,7 +11,7 @@
 ##### My環境
 ubuntu 14.04LTS  
 R 3.3.1 
-#### STATE
+#### start
 1. ターミナル上でgithubから引っぱってきてmake  
 `sudo apt-get install build-essential libatlas-base-dev libopencv-dev`  
 `git clone --recursive https://github.com/dmlc/mxnet`  
