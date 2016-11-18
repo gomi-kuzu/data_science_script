@@ -59,7 +59,7 @@ print(proc.time() - tic)  #学習時間
 preds <- predict(model, test.array, ctx=mx.cpu())  #(テストデータ推定)　さっき学習させたモデルをセット,テストデータを入力,CPUで計算　（結果は確率で得られる）
 pred.label <- max.col(t(preds)) - 1　#確率が一番高いラベルを取り出す
 table(test_org,pred.label)　#推定結果表示
-sum(diag(table(test_org,pred.label)))/1000　#全体正解率
+sum(diag(table(test_org,pred.label)))/length(test_org)　#全体正解率
 
 #学習済みモデルの保存
 mx.model.save(model, "CNNmodel", 30) #モデルの指定,保存名,何エポック目かのメモ（保存名に記される）

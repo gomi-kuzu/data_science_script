@@ -3,8 +3,10 @@ y = 28
 
 library(EBImage)
 img = readImage("pallet.jpg")
-re_img = resize(img,x,y)
-WD_img = 1 - re_img
-in_img = data.matrix(WD_img)
-
-dim(in_img) = c(x,y,1,1)
+re.img = resize(img,x,y)
+rev.img = 1 - re.img
+display(rev.img)
+in.img = data.matrix(rev.img)
+dim(in.img) = c(x,y,1,1)
+new.preds = predict(model,in.img , ctx=mx.cpu())
+cat(max.col(t(new.preds)) - 1)
