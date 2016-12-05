@@ -25,14 +25,6 @@ R 3.3.1
 > install.packages("methods")  
 > install.packages("httr")
 
-###※ここでなんかよくわからんエラー発生
-`ERROR: configuration failed for package ‘curl’`〜〜（省略）
-
-ネットで調べてターミナルから  
-`sudo apt-get install curl`  
-`sudo apt-get install libcurl4-gnutls-dev`  
-とやったらなおった（下だけでよかった可能性アリ）
-
 　で読み込み (library()ではなくrequire()を使う)
 >require(devtools)  
 >require(methods)  
@@ -49,6 +41,14 @@ R 3.3.1
 >set_config(use_proxy(url="任意のアドレス",port=8080))
 
 　がいるらしい（やってない）
+
+###※ここでなんかよくわからんエラー発生
+`ERROR: configuration failed for package ‘curl’`〜〜（省略）
+
+ネットで調べてターミナルから  
+`sudo apt-get install curl`  
+`sudo apt-get install libcurl4-gnutls-dev`  
+とやったらなおった（下だけでよかった可能性アリ）
 
 3.　しあげ  
 ここまで終わったらターミナルで  
